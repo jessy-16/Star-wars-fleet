@@ -1,59 +1,130 @@
-# StarWarsFleet
+🚀 Star Wars Fleet
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+A web application that displays a galactic registry of Star Wars starships using the SWAPI API, with infinite scrolling, search, and editable notes.
 
-## Development server
+📦 Installation & Run
 
-To start a local development server, run:
+# Clone the repository
+git clone <your-repo-url>
 
-```bash
+# Go into the project
+cd star-wars-fleet
+
+# Install dependencies
+npm install
+
+# Run the app
 ng serve
-```
+Then open:
+👉 http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🌌 Chosen SWAPI Resource
 
-## Code scaffolding
+The application uses the /starships resource from SWAPI.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Each starship includes:
 
-```bash
-ng generate component component-name
-```
+Name
+Model
+Class
+Manufacturer
+Crew / Passengers
+Hyperdrive rating
+Cargo / Cost
+And more...
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+♾️ Infinite Scroll Implementation
 
-```bash
-ng generate --help
-```
+Infinite scrolling is implemented using AG Grid Infinite Row Model.
 
-## Building
+How it works:
+Data is fetched page by page (SWAPI returns 10 items per page)
+The grid requests new data via a custom datasource
+When the user scrolls:
+getRows() is triggered
+The correct page is calculated:
 
-To build the project run:
+const page = Math.floor(params.startRow / PAGE_SIZE) + 1;
+The API is called with that page
 
-```bash
-ng build
-```
+🚫 No Loader While Scrolling
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+To respect the requirement:
 
-## Running unit tests
+No spinner is shown during scroll
+Data appears seamlessly as it's fetched
+Only initial loading has a loader
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+✏️ Editable Columns
+Editable column:
+Notes
+Behavior:
+Double-click a cell in the "Notes" column to edit
+Changes are stored only on the client side
+Storage:
+Map<string, Partial<Starship>>
+Key = starship.url
+Value = edited fields
+Why?
+Avoid modifying API data
+Keep edits persistent during session
 
-```bash
-ng test
-```
+📏 Column Resizing
 
-## Running end-to-end tests
+Column resizing is handled by AG Grid:
+resizable: true
 
-For end-to-end (e2e) testing, run:
+Users can:
 
-```bash
-ng e2e
-```
+Drag column edges
+Adjust width dynamically
+🔍 Search Feature
+Search input is debounced (400ms)
+Uses RxJS:
+debounceTime(400)
+distinctUntilChanged()
+Clears cache and reloads data when search changes
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+⚡ Caching System
+Pages are cached in the service
+Prevents duplicate API calls
+service.isCached(page)
 
-## Additional Resources
+Improves performance and UX
+🎨 UI & Features
+Dark mode by default 🌙
+Toggle button for Light/Dark mode
+Custom loader with progress bar
+Futuristic Star Wars-inspired design
+Terminal-style animations
+Responsive layout
+📚 Third-Party Packages
+Main libraries used:
+Angular – Frontend framework
+AG Grid – Data grid (infinite scroll, editing, resizing)
+RxJS – Reactive programming (search debounce)
+⚠️ Trade-offs & Limitations
+SWAPI is a public API → can be slow or unavailable
+Only 37 starships exist → limited dataset
+Edits are:
+Not persisted (lost on refresh)
+Stored only in memory
+No backend (pure frontend project)
+🧪 Tests
+Unit tests implemented for the service
+HTTP calls mocked using:
+HttpClientTestingModule
+HttpTestingController
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Covers:
+Data fetching
+Caching
+Search params
+Error handling
+🧠 Possible Improvements
+
+Persist notes (localStorage or backend)
+Add pagination indicators
+Improve loader realism (based on real API timing)
+Add sorting & filtering
+Deploy online
