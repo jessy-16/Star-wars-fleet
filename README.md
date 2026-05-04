@@ -131,4 +131,4 @@ Deploy online
 
 ## 📸 Preview
 
-![Star Wars Fleet](./Capture d'écran 2026-05-04 102036.png)
+![Star Wars Fleet](./screenshot.png)
