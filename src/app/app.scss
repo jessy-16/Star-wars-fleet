@@ -1,0 +1,49 @@
+// global screen
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: #020617;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Orbitron', sans-serif !important;
+}
+//content
+.loader-content {
+  text-align: center;
+  color: white;
+}
+//text
+.loader-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: #38bdf8;
+  text-transform: uppercase;
+   text-shadow:
+    0 0 5px #38bdf8,
+    0 0 10px #38bdf8,
+    0 0 20px #0ea5e9;
+}
+// progress bar
+.progress-container {
+  width: 300px;
+  height: 8px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+}
+//pourcentage
+.progress-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  color: #94a3b8;
+}

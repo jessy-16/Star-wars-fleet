@@ -1,0 +1,29 @@
+.theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 0 10px #00f0ff;
+
+  background: #111;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  background: #00f0ff;
+  color: #000;
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+
+// Police Star Wars 
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}

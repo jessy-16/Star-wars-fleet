@@ -1,0 +1,132 @@
+@use "tailwindcss";
+
+// AG Grid theme overrides for Star Wars dark theme 
+.ag-theme-quartz-dark {
+  --ag-background-color: #0d0d1a;
+  --ag-header-background-color: #111127;
+  --ag-odd-row-background-color: #0f0f1f;
+  --ag-row-hover-color: #1a1a35;
+  --ag-selected-row-background-color: #1f1f40;
+  --ag-border-color: #2a2a45;
+  --ag-header-foreground-color: #FFE81F;
+  --ag-foreground-color: #e0e0e0;
+  --ag-font-family: 'Segoe UI', system-ui, sans-serif;
+  --ag-font-size: 13px;
+  --ag-cell-horizontal-padding: 12px;
+  --ag-row-height: 44px;
+  --ag-header-height: 48px;
+}
+
+// Editing cell highlight
+.ag-cell-inline-editing {
+  background-color: #1e1e40 !important;
+  border: 1px solid #FFE81F !important;
+}
+
+// Loading overlay 
+.loading-overlay {
+  background: rgba(10, 10, 15, 0.85);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+//Mode light/dark
+body.dark {
+  background-color: #0b0f1a;
+  color: #e6f1ff;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+body.dark {
+  background: radial-gradient(circle at top, #0b0f1a, #05070d);
+  color: #00f0ff;
+}
+
+.title-main {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffe81f; // jaune Star Wars
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 232, 31, 0.6);
+}
+
+.subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  color: #7f8c8d;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.stats {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: #00f0ff;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+.badge-success {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.search-input {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0b0f1a;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+
+  &::placeholder {
+    color: #00f0ff80;
+    letter-spacing: 1px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 10px #00f0ff;
+  }
+}
+
+.tip-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #6c757d;
+}
+
+.theme-btn {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  background: transparent;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+
+  box-shadow: 0 0 8px #00f0ff;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  background: #00f0ff;
+  color: #000;
+  box-shadow: 0 0 15px #00f0ff;
+}
+
+/* Glow effet futuriste */
+.glow-input {
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.3);
+}
+
+.glow-input:focus {
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.8);
+}
+
