@@ -128,3 +128,7 @@ Add pagination indicators
 Improve loader realism (based on real API timing)
 Add sorting & filtering
 Deploy online
+
+## 📸 Preview
+
+![Star Wars Fleet](./Capture d'écran 2026-05-04 102036.png)
